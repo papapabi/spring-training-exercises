@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<configSuffixes>
+		<configSuffix>xml</configSuffix>
+	</configSuffixes>
+	<enableImports>true</enableImports>
+	<configs>
+		<config>src/test/resources/rewards/system-test-config.xml</config>
+		<config>src/main/resources/rewards/aspects-config.xml</config>
+		<config>src/main/resources/rewards/app-config.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+		<configSet>
+			<name>System Test</name>
+			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
+			<incomplete>false</incomplete>
+			<configs>
+				<config>src/test/resources/rewards/system-test-config.xml</config>
+				<config>src/main/resources/rewards/app-config.xml</config>
+				<config>src/main/resources/rewards/aspects-config.xml</config>
+			</configs>
+			<profiles>
+			</profiles>
+		</configSet>
+	</configSets>
+</beansProjectDescription>

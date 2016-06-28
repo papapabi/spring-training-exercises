@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<jdbc:embedded-database id="dataSource" type="HSQL" />
+	
+	<!-- TODO 01a: Study how a LocalContainerEntityManagerFactoryBean is configured -->
+	<!--
+	Notice the following properties:
+		jpaVendorAdapter, jpaProperties, dataSource, and packagesToScan.
+	-->
+	<bean id="entityManagerFactory"
+			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="javax.persistence.schema-generation.database.action">drop-and-create</prop>
+				<prop key="javax.persistence.schema-generation.create-source">metadata</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="dataSource" ref="dataSource" />
+		<!-- TODO 01b: Set the packages to scan -->
+	</bean>
+
+	<context:component-scan base-package="jpa.spring" />
+	
+	<!-- TODO 01c: Define a transaction manager (for JPA) -->
+
+	<!-- TODO 01d: Enable injection of entity manager via @PersistenceContext -->
+	
+</beans>

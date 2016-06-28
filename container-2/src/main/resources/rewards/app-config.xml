@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- TODO 5: Enable detection of annotations such as @PostConstruct, @PreDestroy, and @Required -->
+
+	<bean class="rewards.application.RewardsApplicationServiceImpl">
+		<constructor-arg ref="accountRepository" />
+		<constructor-arg ref="merchantRepository" />
+		<constructor-arg ref="rewardRepository" />
+	</bean>
+
+	<bean id="accountRepository" class="rewards.infrastructure.jdbc.JdbcAccountRepository">
+		<!-- TODO 8a: Comment out the property that set the dataSource -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="merchantRepository" class="rewards.infrastructure.jdbc.JdbcMerchantRepository">
+		<!-- TODO 8a: Comment out the property that set the dataSource -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="rewardRepository" class="rewards.infrastructure.jdbc.JdbcRewardRepository">
+		<!-- TODO 8a: Comment out the property that set the dataSource -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- TODO 8a: Then run rewards.application.RewardsApplicationServiceTests and witness NPEs -->
+	<!--
+		To prevent forgetting the initialization of the dataSource property,
+		you can mark these properties as required (by adding @Required annotation to the setter methods).
+		This will ask the container to help you check if the property was initialized or not.
+
+		After adding the @Required annotations, re-run the test and see it provide a more
+		informative error message.
+		
+		Restore the setting of the dataSource property, and see your tests pass.
+	-->
+
+</beans>

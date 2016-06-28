@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<context:annotation-config />
+
+	<bean class="rewards.application.RewardsApplicationServiceImpl">
+		<constructor-arg ref="accountRepository" />
+		<constructor-arg ref="merchantRepository" />
+		<constructor-arg ref="rewardRepository" />
+	</bean>
+
+	<!-- TODO 1: Add template for JDBC-based repositories to inherit: centralizes the dataSource configuration -->	
+
+	<!-- TODO 2: Remove the property elements from the repository bean definitions
+		and inherit from the abstractJdbcRepository you defined in the previous step  -->
+	<bean id="accountRepository" class="rewards.infrastructure.jdbc.JdbcAccountRepository">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="merchantRepository" class="rewards.infrastructure.jdbc.JdbcMerchantRepository">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="rewardRepository" class="rewards.infrastructure.jdbc.JdbcRewardRepository">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

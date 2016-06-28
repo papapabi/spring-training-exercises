@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- For every step, run rewards.application.RewardsApplicationServiceTests to check -->
+
+	<!-- TODO 5: Mark repository classes with @Repository which will allow the component scanning feature to find them -->
+	<!-- TODO 6: Mark the service class with @Service which will allow the component scanning feature to find them -->
+	<!-- TODO 7: Replace the annotation-config with component-scan to enable component scanning feature
+			and remove all bean declarations from this configuration file
+	-->
+	<context:annotation-config />
+
+	<!-- TODO 4: Mark the constructor of the class as @Autowired and remove the constructor-arg elements -->
+	<bean class="rewards.application.RewardsApplicationServiceImpl">
+		<constructor-arg ref="accountRepository" />
+		<constructor-arg ref="merchantRepository" />
+		<constructor-arg ref="rewardRepository" />
+	</bean>
+
+	<bean id="accountRepository" class="rewards.infrastructure.jdbc.JdbcAccountRepository">
+		<!-- TODO 1: Mark the dataSource property as @Autowired and remove this property element -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="merchantRepository" class="rewards.infrastructure.jdbc.JdbcMerchantRepository">
+		<!-- TODO 2: Mark the dataSource property as @Autowired and remove this property element -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="rewardRepository" class="rewards.infrastructure.jdbc.JdbcRewardRepository">
+		<!-- TODO 3: Mark the dataSource property as @Autowired and remove this property element -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>
