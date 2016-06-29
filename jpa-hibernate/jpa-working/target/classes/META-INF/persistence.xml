@@ -1,0 +1,21 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="jpa.plain" transaction-type="RESOURCE_LOCAL">
+		<!-- org.hibernate.jpa.HibernatePersistenceProvider -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!-- you can choose not to list the persistence classes: @Entity, @Embeddable, @MappedSuperclass -->
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:demodb" />
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<!-- property name="hibernate.show_sql" value="true" / -->
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

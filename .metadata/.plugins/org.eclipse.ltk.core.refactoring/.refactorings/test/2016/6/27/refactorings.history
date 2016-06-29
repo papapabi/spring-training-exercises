@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 11 elements from project &apos;test&apos;&#x0D;&#x0A;- Original project: &apos;test&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     jpa-mapping&#x0D;&#x0A;     src&#x0D;&#x0A;     main&#x0D;&#x0A;     test&#x0D;&#x0A;     target&#x0D;&#x0A;     pom.xml&#x0D;&#x0A;     README.md&#x0D;&#x0A;     jpa-minus-spring&#x0D;&#x0A;     jpa-with-spring&#x0D;&#x0A;     jpa-working&#x0D;&#x0A;     library-app" description="Delete elements" element1="library-app" element2="jpa-mapping" element3="jpa-minus-spring" element4="jpa-with-spring" element5="jpa-working" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="5" stamp="1467187033796" subPackages="false" version="1.0"/>
+</session>

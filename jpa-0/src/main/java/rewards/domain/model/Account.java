@@ -31,7 +31,6 @@ public class Account {
 	// TODO 06b: Override the field of the embedded class to match the column
 	// name of the table
 	@AttributeOverride(name = "acctNumber", column = @Column(name = "NUMBER"))
-	
 	// class AccountDetails is annotated with @Embeddable, you use it for composition
 	// embedded classes
 	private AccountDetails accountDetails;
