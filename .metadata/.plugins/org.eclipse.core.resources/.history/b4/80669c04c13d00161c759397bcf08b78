@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>mvc-0</display-name>
+  
+  <!-- TODO 01: using context-param, load the config files that your application needs --> 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/web-app-config.xml
+			classpath:rewards/app-config.xml
+		</param-value>
+	</context-param>
+	<!-- Bootstraps the root web application context before servlet initialization -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  <!-- TODO 02: Define a ContextLoaderListener as a listener element -->
+  
+  <!-- TODO 03a: Rename TODO-servlet.xml to your preference-->
+  <!-- TODO 03b: Declare the renamed servlet as a servlet here in the web.xml -->
+  <!-- TODO 03c: Declare the servlet-class as a DispatcherServlet -->
+  
+  <!-- TODO 04: Map the servlet to the url '/' -->
+  
+</web-app>

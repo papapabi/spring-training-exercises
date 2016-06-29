@@ -16,7 +16,7 @@
             </Realm>
             <Host appBase="webapps" autoDeploy="true" deployOnStartup="true" deployXML="true" name="localhost" unpackWARs="true">
                 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
-            <Context docBase="web-0" path="/web-0" reloadable="true" source="org.eclipse.jst.jee.server:web-0"/></Host>
+            <Context docBase="web-0" path="/web-0" reloadable="true" source="org.eclipse.jst.jee.server:web-0"/><Context docBase="mvc-0" path="/mvc-0" reloadable="true" source="org.eclipse.jst.jee.server:mvc-0"/></Host>
         </Engine>
         <Connector acceptCount="100" connectionTimeout="20000" executor="tomcatThreadPool" maxKeepAliveRequests="15" port="${bio.http.port}" protocol="org.apache.coyote.http11.Http11Protocol" redirectPort="${bio.https.port}"/>
     </Service>
