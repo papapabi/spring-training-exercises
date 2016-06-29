@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 // TODO 01: Map basic data-members
+
 // TODO 01a: Map the Person class as a persistent entity
 @Entity
 public class Person {

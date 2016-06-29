@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 // TODO 01: Map basic data-members
+
 // TODO 01a: Map the Person class as a persistent entity
 @Entity
 public class Person {
@@ -37,7 +38,7 @@ public class Person {
 	}
 	
 	// TODO 01b2: Add a getter method for this "id" field
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 	
