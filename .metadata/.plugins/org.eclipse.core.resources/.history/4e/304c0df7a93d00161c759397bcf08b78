@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+    <context:component-scan base-package="rewards.application, rewards.domain.model, rewards.infrastructure.jpa"/>
+    
+	<!-- TODO 01a: Define an EntityManagerFactoryBean -->
+	<bean id="entityManagerFactory" 
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<!-- TODO 01b: Set a jpaVendorAdapter -->
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.formate_sql">true</prop>
+				<prop key="hibernate.hbm2ddl">none</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="rewards.domain.model.*" />
+		<!-- TODO 01c: Set a dataSource -->
+		<property name="dataSource" value="dataSource" />
+	</bean>
+	
+	
+	
+
+	<!-- TODO 01d: Define the package/packages that have @Entity classes -->
+	<bean id="account" class="rewards.domain.model.Account" />
+	<bean id="card" class="rewards.domain.model.Card" />
+	<!-- TODO 01e: (optional) set jpaProperties to see the query as when it is run -->
+    
+	<!-- TODO 02a: Define a TransactionManager to enable transactions with JPA -->
+	<!-- TODO 02b: set the EntityManagerFactory this TransactionManager should manage -->
+
+	<!-- TODO 02c: Add an element that will indicate container to look for @Transactional annotations -->
+    
+	<!-- TODO 03: Define a bean that will enable automatic persistence exception translation to classes marked with @Repository -->
+
+</beans>

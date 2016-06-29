@@ -1,0 +1,131 @@
+package rewards.domain.model;
+
+import static org.apache.commons.lang.builder.ToStringBuilder.*;
+
+import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+import rewards.domain.model.embeddable.AccountDetails;
+
+// TODO 04a: Add an annotation to mark this class as entity
+// TODO 04b: Add an annotation to match the name of table of the existing schema
+// TODO 04c: Add an annotation to indicate that field access will be used
+@Entity // JPA, javax.persistence.*
+@Table(name="T_ACCOUNT") // table name in schema.sql is T_ACCOUNT
+@Access(AccessType.FIELD) // field access will be used (no getters and setters)
+public class Account {
+
+	//TODO 05a: Add an annotation to indicate that this field is a primary key
+	//TODO 05b: Add an annotation to let the database generate values for the key 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	//TODO 06a: Specify that this field is embedded by supplying an annotation
+	//TODO 06b: Override the field of the embedded class to match the column name of the table 
+	private AccountDetails accountDetails;
+
+	private String name;
+
+	//TODO 07: Specify the column in which the field will be mapped to 
+	private BigDecimal totalPoints;
+			
+	//TODO 08a: Indicate the association of one Account to many Cards via annotation
+	//TODO 08b: Using @JoinColumn, specify the name of the join column in the Card entity  
+	private Set<Card> cards = new HashSet<>();
+
+	public Account(String number, String name) {
+		this(number, name, BigDecimal.ZERO);
+	}
+
+	public Account(String number, String name, BigDecimal points) {
+		super();
+		this.accountDetails = new AccountDetails();
+		this.accountDetails.setAcctNumber(number);
+		this.name = name;
+		this.totalPoints = points;
+	}
+	
+	public Long getId() {
+	  return id;
+	}
+
+	public void credit(RewardPoints points) {
+		totalPoints = totalPoints.add(points.getValue());
+	}
+
+	public AccountDetails getAccountDetails() {
+		return accountDetails;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public BigDecimal getTotalPoints() {
+		return totalPoints;
+	}
+
+	public boolean addCard(String cardNumber) {
+		return cards.add(new Card(cardNumber));
+	}
+	
+	public Set<Card> getCards() {
+		return Collections.unmodifiableSet(cards);
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((accountDetails == null) ? 0 : accountDetails.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((totalPoints == null) ? 0 : totalPoints.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Account other = (Account) obj;
+		if (accountDetails == null) {
+			if (other.accountDetails != null)
+				return false;
+		} else if (!accountDetails.equals(other.accountDetails))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (totalPoints == null) {
+			if (other.totalPoints != null)
+				return false;
+		} else if (!totalPoints.equals(other.totalPoints))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return reflectionToString(this);
+	}
+	
+	@SuppressWarnings("unused")
+	private Account() {
+//		 required by persistence layer
+	}
+
+	
+}

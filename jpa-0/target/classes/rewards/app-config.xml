@@ -15,12 +15,35 @@
 	<!-- TODO 01c: Set a dataSource -->
 	<!-- TODO 01d: Define the package/packages that have @Entity classes -->
 	<!-- TODO 01e: (optional) set jpaProperties to see the query as when it is run -->
-    
-	<!-- TODO 02a: Define a TransactionManager to enable transactions with JPA -->
-	<!-- TODO 02b: set the EntityManagerFactory this TransactionManager should manage -->
+	<bean id="entityManagerFactory" 
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.formate_sql">true</prop>
+				<prop key="hibernate.hbm2ddl">none</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="rewards.domain.model" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>	
 
+
+	<!-- TODO 02a: Define a TransactionManager to enable transactions with JPA -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager" >
+		<!-- TODO 02b: set the EntityManagerFactory this TransactionManager should manage -->
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
 	<!-- TODO 02c: Add an element that will indicate container to look for @Transactional annotations -->
+    <tx:annotation-driven />
+    <context:annotation-config />
     
 	<!-- TODO 03: Define a bean that will enable automatic persistence exception translation to classes marked with @Repository -->
-
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 </beans>

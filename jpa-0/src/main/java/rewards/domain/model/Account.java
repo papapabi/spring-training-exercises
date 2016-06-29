@@ -7,28 +7,48 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.*;
+
 import rewards.domain.model.embeddable.AccountDetails;
 
 // TODO 04a: Add an annotation to mark this class as entity
 // TODO 04b: Add an annotation to match the name of table of the existing schema
 // TODO 04c: Add an annotation to indicate that field access will be used
+@Entity // JPA, javax.persistence.*
+@Table(name = "T_ACCOUNT") // table name in schema.sql is T_ACCOUNT
+@Access(AccessType.FIELD) // field access will be used (no getters and setters), field access is default though
 public class Account {
 
-	//TODO 05a: Add an annotation to indicate that this field is a primary key
-	//TODO 05b: Add an annotation to let the database generate values for the key 
+	// TODO 05a: Add an annotation to indicate that this field is a primary key
+	// TODO 05b: Add an annotation to let the database generate values for the
+	// key
+	@Id // you can apparently also use @Identity
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	// TODO 06a: Specify that this field is embedded by supplying an annotation
+	@Embedded
+	// TODO 06b: Override the field of the embedded class to match the column
+	// name of the table
+	@AttributeOverride(name = "acctNumber", column = @Column(name = "NUMBER"))
 	
-	//TODO 06a: Specify that this field is embedded by supplying an annotation
-	//TODO 06b: Override the field of the embedded class to match the column name of the table 
+	// class AccountDetails is annotated with @Embeddable, you use it for composition
+	// embedded classes
 	private AccountDetails accountDetails;
 
 	private String name;
 
-	//TODO 07: Specify the column in which the field will be mapped to 
+	// TODO 07: Specify the column in which the field will be mapped to
+	@Column(name = "TOTAL_POINTS")
 	private BigDecimal totalPoints;
-			
-	//TODO 08a: Indicate the association of one Account to many Cards via annotation
-	//TODO 08b: Using @JoinColumn, specify the name of the join column in the Card entity  
+
+	// TODO 08a: Indicate the association of one Account to many Cards via
+	// annotation
+	// you can also use just @OneToMany, no subtypes for class Card
+	@OneToMany(cascade = CascadeType.ALL)
+	// TODO 08b: Using @JoinColumn, specify the name of the join column in the
+	// Card entity
+	@JoinColumn(name = "ACCOUNT_ID")
 	private Set<Card> cards = new HashSet<>();
 
 	public Account(String number, String name) {
@@ -42,9 +62,9 @@ public class Account {
 		this.name = name;
 		this.totalPoints = points;
 	}
-	
+
 	public Long getId() {
-	  return id;
+		return id;
 	}
 
 	public void credit(RewardPoints points) {
@@ -66,7 +86,7 @@ public class Account {
 	public boolean addCard(String cardNumber) {
 		return cards.add(new Card(cardNumber));
 	}
-	
+
 	public Set<Card> getCards() {
 		return Collections.unmodifiableSet(cards);
 	}
@@ -75,11 +95,9 @@ public class Account {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((accountDetails == null) ? 0 : accountDetails.hashCode());
+		result = prime * result + ((accountDetails == null) ? 0 : accountDetails.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((totalPoints == null) ? 0 : totalPoints.hashCode());
+		result = prime * result + ((totalPoints == null) ? 0 : totalPoints.hashCode());
 		return result;
 	}
 
@@ -114,11 +132,10 @@ public class Account {
 	public String toString() {
 		return reflectionToString(this);
 	}
-	
+
 	@SuppressWarnings("unused")
 	private Account() {
-//		 required by persistence layer
+		// required by persistence layer
 	}
 
-	
 }

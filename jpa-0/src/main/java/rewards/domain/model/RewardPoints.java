@@ -2,7 +2,10 @@ package rewards.domain.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Embeddable;
+
 //TODO 09: This class is being embedded in the Reward class. Indicate that this class can be embedded.
+@Embeddable
 public final class RewardPoints {
 
 	public static final RewardPoints ZERO = new RewardPoints(BigDecimal.ZERO);
