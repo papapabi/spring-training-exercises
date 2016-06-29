@@ -7,8 +7,20 @@
   
   <!-- TODO 1a: Define contextConfigLocation context-param -->
   <!-- TODO 1b: Define the configuration files needed by the application -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>
+  		/WEB-INF/web-app-config.xml
+  		classpath:rewards/app-config.xml
+  	</param-value>
+  </context-param>
   
   <!-- TODO 2: Define a ContextLoaderListener to load the configuration files first before Servlets are created -->
+  <listener>
+  	<listener-class>
+  		org.springframework.web.context.ContextLoaderListener
+  	</listener-class>
+  </listener>
   
   <servlet>
 	<servlet-name>RewardServlet</servlet-name>

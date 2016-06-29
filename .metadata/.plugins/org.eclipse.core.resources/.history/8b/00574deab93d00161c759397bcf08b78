@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>web-0</display-name>
+  <welcome-file-list>
+    <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- TODO 1a: Define contextConfigLocation context-param -->
+  <!-- TODO 1b: Define the configuration files needed by the application -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>/WEB-INF/web-app-config.xml</param-value>
+  </context-param>
+  
+
+  
+  <!-- TODO 2: Define a ContextLoaderListener to load the configuration files first before Servlets are created -->
+  <listener>
+  	<listener-class>
+  		org.springframework.web.context.ContextLoaderListener
+  	</listener-class>
+  </listener>
+  
+  <servlet>
+	<servlet-name>RewardServlet</servlet-name>
+	<servlet-class>rewards.web.RewardServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+	<servlet-name>RewardServlet</servlet-name>
+	<url-pattern>/reward</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+    <exception-type>org.springframework.dao.EmptyResultDataAccessException</exception-type>
+    <location>/WEB-INF/views/errors/notFound.jsp</location>
+</error-page>
+</web-app>

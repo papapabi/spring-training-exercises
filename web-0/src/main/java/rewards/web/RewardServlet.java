@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import common.Money;
 import rewards.application.Purchase;
 import rewards.application.RewardConfirmation;
@@ -23,7 +26,9 @@ public class RewardServlet extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {	
 		//TODO 3a Use WebApplicationContextUtils to retrieve the ApplicationContext
+		ApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
 		//TODO 3b Use the ApplicationContext to retrieve the RewardsApplicationService
+		rewardService = context.getBean(RewardsApplicationService.class);
 	}
 	
 	@Override
@@ -42,7 +47,5 @@ public class RewardServlet extends HttpServlet {
 		
 		RequestDispatcher view = req.getRequestDispatcher("/WEB-INF/views/reward.jsp");		
 		view.forward(req, resp);
-		
 	}
-	
 }
