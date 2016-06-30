@@ -20,9 +20,6 @@ public class Person {
 	private String name;
 
 	@Convert(converter=LocalDateConverter.class)
-	// this annotation automatically converts java.time.LocalDate classes to java.sql.Date classes
-	// as defined in your LocalDateConverter
-	// pretty cool stuff
 	private LocalDate birthDate;
 
 	public Long getId() {

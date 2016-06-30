@@ -24,10 +24,10 @@ public class LocalDateConverter implements AttributeConverter<LocalDate, Date> {
 
 	@Override
 	public LocalDate convertToEntityAttribute(Date date) {
-		Validate.notNull(date);
 		// TODO 05b: Convert java.sql.Date to java.time.LocalDate
 		// Hint: Use static java.sql.Date#toLocalDate() factory method
 		// Run LocalDateConverterTests to see that it is working
-		return date.toLocalDate();
+		return null;
 	}
+
 }

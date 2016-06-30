@@ -30,4 +30,5 @@ public class LocalDateConverter implements AttributeConverter<LocalDate, Date> {
 		// Run LocalDateConverterTests to see that it is working
 		return date.toLocalDate();
 	}
+
 }
