@@ -54,7 +54,7 @@ public class GenerateSchemaTests {
 	public void nameLike1() throws Exception {
 		// TODO 06a: Use JPQL to retrieve Person(s) with a name LIKE '%son%'
 		TypedQuery<Person> query = entityManager.createQuery(
-				"FROM Person", Person.class);
+				"SELECT p FROM Person p WHERE p.name LIKE :name", Person.class);
 		query.setParameter("name", "%son%");
 		List<Person> persons = query.getResultList();
 		assertEquals(3, persons.size());
@@ -82,7 +82,7 @@ public class GenerateSchemaTests {
 		// Use LOWER to make name comparison case-insensitive
 		// Use CONCAT to add wildcards (%) before and after the search string
 		TypedQuery<Person> query = entityManager.createQuery(
-				"FROM Person",
+				"SELECT p FROM Person p WHERE LOWER(name) LIKE CONCAT('%', LOWER(:name), '%')",
 				Person.class);
 		query.setParameter("name", "JO");
 		List<Person> persons = query.getResultList();
@@ -109,7 +109,7 @@ public class GenerateSchemaTests {
 	public void gender() throws Exception {
 		// TODO 06c: Use JPQL to retrieve females
 		TypedQuery<Person> query = entityManager.createQuery(
-				"FROM Person",
+				"SELECT p FROM Person p WHERE p.gender = :gender",
 				Person.class);
 		query.setParameter("gender", Gender.FEMALE);
 		List<Person> persons = query.getResultList();
@@ -142,7 +142,7 @@ public class GenerateSchemaTests {
 		// TODO 06d: Use JPQL to count the number of males and females
 		// Hint: Use COUNT, GROUP BY, and ORDER BY
 		Query query = entityManager.createQuery(
-				"SELECT p FROM Person p");
+				"SELECT p.gender, COUNT(p) FROM Person p GROUP BY p.gender ORDER BY p.gender");
 		List<Object[]> results = query.getResultList();
 		assertEquals(2, results.size());
 		// (Gender) results.get(0)[0]

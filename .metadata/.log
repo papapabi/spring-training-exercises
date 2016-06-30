@@ -3572,3 +3572,84 @@ java.lang.Exception: Debug stacktrace
 	at org.springsource.ide.eclipse.commons.core.HttpUtil.stream(HttpUtil.java:165)
 	at org.springsource.ide.eclipse.dashboard.internal.ui.editors.AggregateFeedJob$1.run(AggregateFeedJob.java:145)
 	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2016-06-30 13:43:13.312
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin com.vmware.vfabric.ide.eclipse.tcserver.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2016-06-30 13:43:13.317
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin org.eclipse.cft.server.branding.core.
+
+!ENTRY org.eclipse.wst.jsdt.web.core 4 4 2016-06-30 13:43:24.938
+!MESSAGE Failed while installing JavaScript 1.0.
+!STACK 1
+org.eclipse.wst.common.project.facet.core.FacetedProjectFrameworkException: Failed while installing JavaScript 1.0.
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1507)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:441)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$1.run(FacetedProject.java:324)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modify(FacetedProject.java:339)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.installProjectFacet(FacetedProject.java:255)
+	at org.eclipse.wst.jsdt.web.core.internal.project.ConvertJob.runInWorkspace(ConvertJob.java:57)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.core.runtime.CoreException: Error installing runtime! JavaScript Development Tools could not be added..
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.installNature(JsNatureInstaller.java:55)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.execute(JsNatureInstaller.java:37)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1477)
+	... 10 more
+Caused by: org.eclipse.core.internal.resources.ResourceException: Resource '/leaveapplication' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:143)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:394)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsWebNature.addJsNature(JsWebNature.java:61)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsWebNature.configure(JsWebNature.java:151)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.installNature(JsNatureInstaller.java:50)
+	... 12 more
+!SUBENTRY 1 org.eclipse.wst.common.project.facet.core 4 0 2016-06-30 13:43:24.939
+!MESSAGE Failed while installing JavaScript 1.0.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error installing runtime! JavaScript Development Tools could not be added..
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.installNature(JsNatureInstaller.java:55)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.execute(JsNatureInstaller.java:37)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1477)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:441)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$1.run(FacetedProject.java:324)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modify(FacetedProject.java:339)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.installProjectFacet(FacetedProject.java:255)
+	at org.eclipse.wst.jsdt.web.core.internal.project.ConvertJob.runInWorkspace(ConvertJob.java:57)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Resource '/leaveapplication' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:143)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:394)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsWebNature.addJsNature(JsWebNature.java:61)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsWebNature.configure(JsWebNature.java:151)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.installNature(JsNatureInstaller.java:50)
+	... 12 more
+!SUBENTRY 2 org.eclipse.wst.jsdt.web.core 4 0 2016-06-30 13:43:24.939
+!MESSAGE Error installing runtime! JavaScript Development Tools could not be added..
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/leaveapplication' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:143)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:394)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsWebNature.addJsNature(JsWebNature.java:61)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsWebNature.configure(JsWebNature.java:151)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.installNature(JsNatureInstaller.java:50)
+	at org.eclipse.wst.jsdt.web.core.internal.project.JsNatureInstaller.execute(JsNatureInstaller.java:37)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1477)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:441)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$1.run(FacetedProject.java:324)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modify(FacetedProject.java:339)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.installProjectFacet(FacetedProject.java:255)
+	at org.eclipse.wst.jsdt.web.core.internal.project.ConvertJob.runInWorkspace(ConvertJob.java:57)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 3 org.eclipse.core.resources 4 372 2016-06-30 13:43:24.939
+!MESSAGE Resource '/leaveapplication' is not open.

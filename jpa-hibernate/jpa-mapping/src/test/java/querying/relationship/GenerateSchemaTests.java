@@ -56,7 +56,7 @@ public class GenerateSchemaTests {
 	public void employeesOfADepartment() throws Exception {
 		// TODO 07a: Retrieve employees of a given department
 		TypedQuery<Employee> query = entityManager.createQuery(
-				"SELECT e FROM Employee e",
+				"SELECT e FROM Employee e JOIN e.department d WHERE d.id = :id",
 				Employee.class);
 		query.setParameter("id", 2L); // executive committee
 		List<Employee> employees = query.getResultList();
@@ -91,7 +91,7 @@ public class GenerateSchemaTests {
 	public void departmentsThatHaveMoreThanTwoEmployees() throws Exception {
 		// TODO 07b: Retrieve departments that have more than two employees
 		TypedQuery<Department> query = entityManager.createQuery(
-				"SELECT d FROM Department d",
+				"SELECT d FROM Department d WHERE SIZE(d.employees) > :size",
 				Department.class);
 		query.setParameter("size", 2);
 		List<Department> departments = query.getResultList();

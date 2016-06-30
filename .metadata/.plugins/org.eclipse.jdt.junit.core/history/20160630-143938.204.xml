@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GenerateSchemaTests (5)" project="jpa-mapping" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="querying.basic.GenerateSchemaTests" time="0.174">
+    <testcase name="gender" classname="querying.basic.GenerateSchemaTests" time="0.152"/>
+    <testcase name="count" classname="querying.basic.GenerateSchemaTests" time="0.008"/>
+    <testcase name="nameLike1" classname="querying.basic.GenerateSchemaTests" time="0.007"/>
+    <testcase name="nameLike2" classname="querying.basic.GenerateSchemaTests" time="0.007"/>
+  </testsuite>
+</testrun>
