@@ -41,6 +41,7 @@ public class GenerateSchemaTests {
 		entityManager.getMetamodel().entity(Org.class);
 		// When the above call does not throw an exception,
 		// the Party/Person/Org classes are mapped as a persistent entities.
+
 		Person p = new Person();
 		p.setFirstName("John");
 		p.setLastName("Smith");

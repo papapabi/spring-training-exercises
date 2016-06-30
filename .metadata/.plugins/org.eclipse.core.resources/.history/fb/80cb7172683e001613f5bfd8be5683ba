@@ -7,8 +7,7 @@ import javax.persistence.*;
 // TODO 03c: Map the Person class as a persistent entity
 @Entity
 // TODO 03e2 (optional): Override the discriminator value (as "PERS")
-// @DiscriminatorValue("PERS")
-@DiscriminatorValue("PERS")
+//@DiscriminatorValue("PERS")
 public class Person extends Party {
 	
 	private String firstName;
