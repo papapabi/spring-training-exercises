@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.Entity"/>
 <fullyQualifiedTypeName name="javax.persistence.AttributeOverride"/>
 <fullyQualifiedTypeName name="javax.persistence.Embeddable"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -15,4 +14,5 @@
 <fullyQualifiedTypeName name="rewards.application.Purchase"/>
 <fullyQualifiedTypeName name="common.Money"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
 </qualifiedTypeNameHistroy>

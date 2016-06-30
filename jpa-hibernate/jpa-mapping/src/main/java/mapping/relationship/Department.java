@@ -12,6 +12,10 @@ public class Department {
 	private String name;
 
 	// TODO 02b: Map the one-to-many relationship to Employee entity
+	@OneToMany(mappedBy="department") // signifies that this class (Department) has a one-to-many relationship with class Employee
+	// one department has many employees
+	// employee table will have the foreign key
+	// @Transient if you remove @OneToMany
 	private Collection<Employee> employees;
 	
 	public Department(long id, String name) {

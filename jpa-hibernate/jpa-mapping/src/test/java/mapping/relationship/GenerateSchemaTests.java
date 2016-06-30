@@ -15,11 +15,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @ContextConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
+// again, this finds the ${GenerateSchemaTests-context.xml} in the same package (mapping.relationship)
+@RunWith(SpringJUnit4ClassRunner.class) // integration test to work
 @Transactional
 public class GenerateSchemaTests {
 
 	@PersistenceContext
+	// this annotation automatically assigns an entity manager
 	private EntityManager entityManager;
 
 	@Before
@@ -32,7 +34,6 @@ public class GenerateSchemaTests {
 	}
 
 	// TODO 02: Map bi-directional multi-valued association between Department and Employee
-
 	@Test
 	public void testGenerateSchema() throws Exception {
 		entityManager.getMetamodel().entity(Employee.class);
@@ -57,8 +58,9 @@ public class GenerateSchemaTests {
 		Employee employee = new Employee(51);
 		employee.setFirstName("Cindy");
 		employee.setLastName("Clarkson");
-		Department hr = entityManager.find(Department.class, 1L);
-		hr.getEmployees().add(employee);
+		//Department hr = entityManager.find(Department.class, 1L); // this uses the SELECT statement
+		Department hr = entityManager.getReference(Department.class, 1L); // use this if you're sure about the foreign key
+		//hr.getEmployees().add(employee);
 		employee.setDepartment(hr);
 		entityManager.persist(employee);
 		entityManager.flush(); // just so SQL commands can be seen

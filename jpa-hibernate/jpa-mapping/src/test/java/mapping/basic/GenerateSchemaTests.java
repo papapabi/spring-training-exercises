@@ -14,8 +14,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-@ContextConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
+
+@ContextConfiguration // by default, it loads $(class-name)-context.xml in the same package, if not specified
+@RunWith(SpringJUnit4ClassRunner.class) // caches a shared ApplicationContext across test methods
 @Transactional
 public class GenerateSchemaTests {
 

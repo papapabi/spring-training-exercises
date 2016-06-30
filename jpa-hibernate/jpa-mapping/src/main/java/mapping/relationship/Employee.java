@@ -12,6 +12,8 @@ public class Employee {
 	private String lastName;
 
 	// TODO 02a: Map the many-to-one relationship to Department entity
+	@ManyToOne
+	// Many employees are in a single department
 	private Department department;
 	
 	public Employee(long id) {

@@ -14,8 +14,9 @@ public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+	@Basic
 	private String firstName;
+	// unannotated fields of an @Entity-annotated class automatically default to @Basic, such as this one
 	private String lastName;
 	// TODO 01c: Map the birth date as a DATE field (no hours-minutes-seconds)
 	@Temporal(TemporalType.DATE)
