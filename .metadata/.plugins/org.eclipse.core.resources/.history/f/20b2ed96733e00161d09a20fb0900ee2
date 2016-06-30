@@ -65,7 +65,7 @@ public class PersistentMonthDayAsIntegers implements CompositeUserType {
 	@Override
 	public Class returnedClass() {
 		// TODO 04d: Return the class being mapped (java.time.MonthDay)
-		return java.time.MonthDay.class;
+		return null;
 	}
 
 	@Override
@@ -97,8 +97,7 @@ public class PersistentMonthDayAsIntegers implements CompositeUserType {
 		// with the given month and dayOfMonth (already initialized above)
 		// Hint: Since java.time.MonthDay does not have a public constructor,
 		// use one of its static factory methods (e.g. MonthDay.of(int, int));
-		MonthDay monthDay = MonthDay.of(month, dayOfMonth);
-		return monthDay;
+		return null;
 	}
 
 	@Override
