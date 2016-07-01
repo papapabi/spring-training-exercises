@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MergingDetachedObjectsTests.mergeDetached1" project="jpa-working" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="mergeDetached1" classname="working.detached.MergingDetachedObjectsTests" time="0.006"/>
+</testrun>

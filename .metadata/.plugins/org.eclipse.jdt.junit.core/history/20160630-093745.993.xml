@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="GenerateSchemaTests (1)" project="jpa-mapping" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="mapping.relationship.GenerateSchemaTests" time="0.09">
-    <testcase name="addEmployee" classname="mapping.relationship.GenerateSchemaTests" time="0.089"/>
-    <testcase name="testGenerateSchema" classname="mapping.relationship.GenerateSchemaTests" time="0.001"/>
-  </testsuite>
-</testrun>

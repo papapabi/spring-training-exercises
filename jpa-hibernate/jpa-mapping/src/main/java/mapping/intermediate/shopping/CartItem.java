@@ -11,7 +11,8 @@ import javax.persistence.*;
 // Hint: You'll need to override the default column names
 // to ensure that the column names used in the unique
 // constraint will be correct.
-@Entity
+@Entity 
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={ "cardId", "productId"})})
 public class CartItem {
 
 	@Id
@@ -19,9 +20,13 @@ public class CartItem {
 	private Long id;
 
 	// TODO 08b: Map many-to-one relationship/association to the cart this item belongs to
+	@ManyToOne
+	@JoinColumn(name="cardId", nullable=false, updatable=false)
 	private Cart cart;
 
 	// TODO 08c: Map many-to-one relationship/association to a product
+	@ManyToOne
+	@JoinColumn(name="productId", nullable=false, updatable=false)
 	private Product product;
 
 	private int quantity;

@@ -18,6 +18,8 @@ public class Cart {
 	// TODO 08a: Map one cart to many items using java.util.Map
 	// The map key is a Product entity
 	// The map value is a CartItem entity
+	@OneToMany(orphanRemoval=true, cascade=CascadeType.ALL)
+	@MapKey(name="product") // map key is @Id of CartItem
 	private Map<Product, CartItem> items;
 
 	public Cart() {

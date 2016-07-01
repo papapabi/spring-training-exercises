@@ -15,4 +15,7 @@
 <fullyQualifiedTypeName name="common.Money"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="java.time.MonthDay"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.Columns"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang.Validate"/>
 </qualifiedTypeNameHistroy>

@@ -14,3 +14,7 @@
 # Maven
 */log/
 */target/
+
+
+#mp 'library-app' is on a different repository
+jpa-hibernate/library-app

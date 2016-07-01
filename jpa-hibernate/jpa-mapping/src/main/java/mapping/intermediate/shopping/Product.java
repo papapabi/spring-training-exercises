@@ -1,4 +1,4 @@
-package mapping.intermediate.shopping;
+	package mapping.intermediate.shopping;
 
 import javax.money.MonetaryAmount;
 import javax.persistence.Column;
